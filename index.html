@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Picker</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <!-- JQuery -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+        <!-- Styles -->       
+        <link rel="stylesheet" type="text/css" href="css/color-picker.css" />
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#create-chart').click(function() {
+                    $('#color_container').html('');
+
+                    var step = parseInt($('#step').val(), 16);
+                    var current = 0;
+
+                    for (var i = 0; i <= 16777215; i += step) {
+                        var color = '#' + i.toString(16);
+                        $('#color_container').append('<div style="background-color:' + color + '"></div>');
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Color Picker</h1>
+
+        Step <input type="text" id="step" value="05" /> <button id="create-chart">Create Chart</button>
+
+        <div id="color_container"></div>
+    </body>
+</html>
